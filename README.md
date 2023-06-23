@@ -1,6 +1,6 @@
 # Quasar App (getdeals)
 
-A Quasar Project
+A website in dev that allows the user to see which games are on discount across various websites
 
 ## Install the dependencies
 ```bash
