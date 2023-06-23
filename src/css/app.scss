@@ -1,0 +1,10 @@
+// app global css in SCSS form
+
+// Quasar override
+.q-tab__label {
+  font-size: 1.5rem;
+}
+
+.q-field--outlined .q-field__control:before {
+  border: 2px solid rgba(255, 30, 86, 0.90);
+}
