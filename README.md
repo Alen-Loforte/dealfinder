@@ -1,6 +1,8 @@
 # Quasar App (getdeals)
 
-A website in dev that allows the user to see which games are on discount across various websites
+A website in dev that allows the user to see which games are on discount across various websites.
+The website will use cheapshark API(https://apidocs.cheapshark.com/) to fecth all the current discounts
+
 
 ## Install the dependencies
 ```bash
