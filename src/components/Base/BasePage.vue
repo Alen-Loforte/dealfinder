@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center background-color">
+  <q-page class="flex container-style">
     <slot></slot>
   </q-page>
 </template>
@@ -7,7 +7,8 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-.background-color {
+.container-style {
   background-color: $background-color;
+  padding: 2rem;
 }
 </style>
