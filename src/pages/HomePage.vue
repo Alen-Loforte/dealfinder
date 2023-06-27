@@ -1,7 +1,11 @@
 <template>
-  <BasePage> </BasePage>
+  <BasePage>
+    <HomeManagement />
+  </BasePage>
 </template>
 
-<script setup></script>
+<script setup>
+import HomeManagement from "src/components/Home/HomeManagement.vue";
+</script>
 
 <style lang="scss" scoped></style>
