@@ -1,6 +1,7 @@
+// Theme colors
 $primary: #000000;
 $secondary: rgba(0, 0, 0, 0.8);
-$accent: #ff1e56;
+$accent: #fff;
 
 $dark: #1d1d1d;
 $dark-page: #121212;
@@ -10,10 +11,87 @@ $negative: #c10015;
 $info: #31ccec;
 $warning: #f2c037;
 
-$font-color: $accent;
+$font-color: #ffffff;
 $background-color: rgba(0, 0, 0, 0.8);
+
+// Custom colors
+$white: #ffffff;
 
 // Color Overide
 $red: $accent;
 $input-text-color: $accent;
 $input-label-color: $accent;
+
+// Typhografy overide
+$h1: (
+  size: 6rem,
+  line-height: 6rem,
+  letter-spacing: -0.01562em,
+  weight: 300,
+);
+$h2: (
+  size: 3.75rem,
+  line-height: 3.75rem,
+  letter-spacing: -0.00833em,
+  weight: 300,
+);
+$h3: (
+  size: 3rem,
+  line-height: 3.125rem,
+  letter-spacing: normal,
+  weight: 400,
+);
+$h4: (
+  size: 2.125rem,
+  line-height: 2.5rem,
+  letter-spacing: 0.00735em,
+  weight: 400,
+);
+$h5: (
+  size: 1.5rem,
+  line-height: 2rem,
+  letter-spacing: normal,
+  weight: 400,
+);
+$h6: (
+  size: 1.25rem,
+  line-height: 2rem,
+  letter-spacing: 0.0125em,
+  weight: 500,
+);
+$subtitle1: (
+  size: 1rem,
+  line-height: 1.75rem,
+  letter-spacing: 0.00937em,
+  weight: 400,
+);
+$subtitle2: (
+  size: 0.875rem,
+  line-height: 1.375rem,
+  letter-spacing: 0.00714em,
+  weight: 500,
+);
+$body1: (
+  size: 1.1rem,
+  line-height: 1.5rem,
+  letter-spacing: 0.03125em,
+  weight: 400,
+);
+$body2: (
+  size: 0.875rem,
+  line-height: 1.25rem,
+  letter-spacing: 0.01786em,
+  weight: 400,
+);
+$overline: (
+  size: 0.75rem,
+  line-height: 2rem,
+  letter-spacing: 0.16667em,
+  weight: 500,
+);
+$caption: (
+  size: 0.75rem,
+  line-height: 1.25rem,
+  letter-spacing: 0.03333em,
+  weight: 400,
+);
