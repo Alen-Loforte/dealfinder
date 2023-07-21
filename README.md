@@ -3,6 +3,7 @@
 A website in dev that allows the user to see which games are on discount across various websites.
 The website will use cheapshark API(https://apidocs.cheapshark.com/) to fecth all the current discounts
 
+<a href="https://www.codefactor.io/repository/github/alen-loforte/getdeals"><img src="https://www.codefactor.io/repository/github/alen-loforte/getdeals/badge" alt="CodeFactor" /></a>
 
 ## Install the dependencies
 ```bash
@@ -42,4 +43,3 @@ quasar build
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
-<a href="https://www.codefactor.io/repository/github/alen-loforte/getdeals"><img src="https://www.codefactor.io/repository/github/alen-loforte/getdeals/badge" alt="CodeFactor" /></a>
