@@ -12,11 +12,11 @@ export const useDealStore = defineStore("deals", {
     getDealsList() {
       return api({
         method: "get",
-        url: "deals",
+        url: "deals?pageNumber=0&pageSize=30",
+        // TODO: Need to replaced static pageNumber and pageSize
       })
         .then((response) => {
           this.dealList = response.data;
-          console.log(response);
         })
         .catch((error) => {
           console.error("An error ocurred" + error);

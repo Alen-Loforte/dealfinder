@@ -8,6 +8,7 @@ import BaseButton from "../components/Base/BaseButton.vue";
 import BasePageLink from "../components/Base/BasePageLink.vue";
 import BaseTooltip from "../components/Base/BaseTooltip.vue";
 import BaseDropdownButton from "../components/Base/BaseDropdownButton.vue";
+import BaseStoreIcon from "../components/Base/BaseStoreIcon.vue";
 
 export default ({ app }) => {
   app.component("BaseInput", BaseInput);
@@ -20,4 +21,5 @@ export default ({ app }) => {
   app.component("BasePageLink", BasePageLink);
   app.component("BaseTooltip", BaseTooltip);
   app.component("BaseDropdownButton", BaseDropdownButton);
+  app.component("BaseStoreIcon", BaseStoreIcon);
 };
