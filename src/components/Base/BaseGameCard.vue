@@ -1,29 +1,25 @@
 <template>
-  <q-card class="card-content">
+  <q-card
+    :class="
+      dealDetail.salePrice == 0
+        ? 'card-content spinningAnimation'
+        : 'card-content'
+    "
+  >
     <div class="card-style">
       <div @click="goToGame" class="img-container">
         <q-img :src="dealDetail.thumb" class="img-style" />
       </div>
       <div class="q-mt-md">
         <div class="multi-line">
-          <span class="text-h6">
-            {{ $t("title") }}
-          </span>
-          <span class="text-body1">{{ dealDetail.title }} </span>
+          <span class="text-h6">{{ dealDetail.title }} </span>
         </div>
-        <div class="flex">
-          <div>
-            <span class="text-h6">{{ $t("price") }}</span>
-            <span class="text-body1">{{ dealDetail.normalPrice }}$</span>
-          </div>
-          <div class="q-ml-lg">
-            <span class="text-h6">{{ $t("salePrice") }}</span>
-            <span class="text-body1"> {{ dealDetail.salePrice }}$</span>
-          </div>
-        </div>
-        <div>
-          <span class="text-h6">{{ $t("store") }}</span>
-          <span class="text-body1"> {{ dealDetail.storeID }} - WIP</span>
+        <div class="flex items-center">
+          <s class="text-body1">{{ dealDetail.normalPrice }}$</s>
+          <BaseIcon name="arrow_right_alt" />
+          <span class="text-body1"> {{ dealDetail.salePrice }}$</span>
+          {{ dealDetail.storeID }}
+          <BaseStoreIcon class="q-ml-sm" :storeNum="dealDetail.storeID" />
         </div>
         <div>
           <span class="text-h6">{{ $t("dealRating") }}</span>
@@ -37,43 +33,8 @@
             {{ dealDetail.dealRating }}
           </span>
         </div>
-        <div>
-          <!--
-            If the game is rated on metacritic it will show the rating
-          -->
-          <div v-if="dealDetail.metacriticScore > 0">
-            <span class="text-h6">{{ $t("metaCriticScore") }}</span>
-            <span class="text-body1"> {{ dealDetail.metacriticScore }}</span>
-          </div>
-          <div v-else>
-            <span class="text-h6">{{ $t("metaCriticScore") }}</span>
-            <span class="text-body1"> Not Rated</span>
-          </div>
-        </div>
-
-        <div>
-          <!-- 
-            If the game is rated on steam it will show steam score
-           -->
-          <div v-if="dealDetail.steamRatingPercent > 0">
-            <span class="text-h6">{{ $t("steamScore") }}</span>
-            <span class="text-body1">
-              {{ dealDetail.steamRatingPercent }}%({{
-                dealDetail.steamRatingText
-              }})
-            </span>
-          </div>
-          <!--
-            Else it shows not rated
-          -->
-          <div v-else>
-            <span class="text-h6">{{ $t("steamScore") }}</span>
-            <span class="text-body1"> Not Rated </span>
-          </div>
-        </div>
-        <div>
-          <span class="text-h6">{{ $t("releaseDay") }}</span>
-          <span class="text-body1">{{ releaseDate }}</span>
+        <div class="q-mt-sm">
+          <u class="text-body1 link-style">More info</u>
         </div>
       </div>
     </div>
@@ -81,8 +42,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-
 const props = defineProps({
   dealDetail: {
     type: Object,
@@ -99,17 +58,6 @@ function goToGame() {
     "noreferrer"
   );
 }
-
-const releaseDate = computed(() => {
-  const convertedDate = new Date(props.dealDetail.releaseDate * 1000);
-  return (
-    convertedDate.getDay() +
-    "/" +
-    convertedDate.getMonth() +
-    "/" +
-    convertedDate.getFullYear()
-  );
-});
 </script>
 
 <style lang="scss" scoped>
@@ -144,5 +92,40 @@ const releaseDate = computed(() => {
 }
 .multi-line {
   height: 4rem;
+}
+
+.link-style {
+  cursor: pointer;
+}
+
+/* Animation */
+.spinningAnimation {
+  --border-size: 3px;
+  --border-angle: 0turn;
+  background-image: conic-gradient(
+      from var(--border-angle),
+      $primary,
+      $primary 50%,
+      $primary
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, #9747ff, #f03);
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  animation: bg-spin 3s linear infinite;
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
 }
 </style>
