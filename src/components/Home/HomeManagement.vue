@@ -3,7 +3,7 @@
     <div class="content-container">
       <BaseGameCard
         v-for="dealItem in dealList"
-        :key="dealItem.gameID"
+        :key="dealItem.dealID"
         :dealDetail="dealItem"
       />
     </div>
