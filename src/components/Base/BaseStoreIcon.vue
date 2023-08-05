@@ -75,9 +75,14 @@ function getCustomIcon(storeNumber) {
     case "28":
       return "src/assets/icons/gamesload-icon.svg";
       break;
+    case "30":
+      return "src/assets/icons/indegala-icon.svg";
+      break;
     case "31":
       return "src/assets/icons/blizzard-icon.svg";
       break;
+    case "34":
+      return "src/assets/icons/noctre-icon.svg";
     default:
       return "src/assets/icons/noicon-icon.svg";
       break;
