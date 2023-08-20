@@ -1,8 +1,8 @@
 {
-  "name": "getdeals",
+  "name": "gzdeals",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "description": "A website that allows to see current deals",
+  "productName": "Gz Deals",
   "author": "Alen Loforte <53468037+Alen-Loforte@users.noreply.github.com>",
   "private": true,
   "scripts": {
