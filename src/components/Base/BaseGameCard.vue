@@ -18,7 +18,6 @@
           <s class="text-body1">{{ dealDetail.normalPrice }}$</s>
           <BaseIcon name="arrow_right_alt" />
           <span class="text-body1"> {{ dealDetail.salePrice }}$</span>
-          {{ dealDetail.storeID }}
           <BaseStoreIcon class="q-ml-sm" :storeNum="dealDetail.storeID" />
         </div>
         <div>
