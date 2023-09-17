@@ -6,9 +6,10 @@ The website will use cheapshark API(https://apidocs.cheapshark.com/) to fecth al
 <a href="https://www.codefactor.io/repository/github/alen-loforte/getdeals"><img src="https://www.codefactor.io/repository/github/alen-loforte/getdeals/badge" alt="CodeFactor" /></a>
 
 # To Do
-1. Add pagination on the home page
-2. Make the store page work and allow the user to select a specific store
-3. Write about Page
+1. ~~Add pagination on the home page~~
+2. Add skeleton for when the data is loading
+3. Make the store page work and allow the user to select a specific store
+4. Write about Page
 
 ## Install the dependencies
 ```bash

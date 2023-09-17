@@ -8,7 +8,9 @@
   >
     <div class="card-style">
       <div @click="goToGame" class="img-container">
-        <q-img :src="dealDetail.thumb" class="img-style" />
+        <q-img :src="dealDetail.thumb" class="img-style">
+          <BaseTooltip label="Go to deal" />
+        </q-img>
       </div>
       <div class="q-mt-md">
         <div class="multi-line">

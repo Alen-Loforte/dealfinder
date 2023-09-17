@@ -9,10 +9,13 @@ export const useDealStore = defineStore("deals", {
     getDealList: (state) => state.dealList,
   },
   actions: {
-    getDealsList() {
+    getDealsList(pageNumber) {
+      console.log(pageNumber);
       return api({
         method: "get",
-        url: "deals?pageNumber=0&pageSize=30",
+        // url: "deals?pageNumber={pageNumber}&pageSize=30",
+        url: `deals?pageNumber=${pageNumber}&pageSize=30`,
+
         // TODO: Need to replaced static pageNumber and pageSize
       })
         .then((response) => {
