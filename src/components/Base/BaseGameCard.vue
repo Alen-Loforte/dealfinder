@@ -1,5 +1,6 @@
 <template>
   <q-card
+    @click="goToGame"
     :class="
       dealDetail.salePrice == 0
         ? 'card-content spinningAnimation'
@@ -7,10 +8,8 @@
     "
   >
     <div class="card-style">
-      <div @click="goToGame" class="img-container">
-        <q-img :src="dealDetail.thumb" class="img-style">
-          <BaseTooltip label="Go to deal" />
-        </q-img>
+      <div class="img-container">
+        <q-img :src="dealDetail.thumb" class="img-style" />
       </div>
       <div class="q-mt-md">
         <div class="multi-line">
@@ -67,6 +66,13 @@ function goToGame() {
   padding: 0.5rem;
   width: 400px;
   min-height: 350px;
+  cursor: pointer;
+  transition: box-shadow 300ms ease-out;
+  transition: transform 300ms ease-out;
+  &:hover {
+    box-shadow: 0px 0px 10px 1px rgba(10, 0, 0, 1);
+    transform: translate(0px, 0px) scale(1.02, 1.02);
+  }
 }
 .card-style {
   display: flex;
@@ -83,7 +89,7 @@ function goToGame() {
   width: 100%;
   height: 130px;
   object-fit: cover;
-  cursor: pointer;
+  // cursor: pointer;
 }
 .positive-deal {
   color: $positive;
