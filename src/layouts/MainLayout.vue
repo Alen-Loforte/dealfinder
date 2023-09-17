@@ -12,6 +12,12 @@
           <q-route-tab no-caps to="/page2" label="Stores" />
           <q-route-tab no-caps to="/page3" label="About" />
         </q-tabs>
+        <div>
+          <q-icon
+            name="img:/big_icon_with_name.svg"
+            style="height: 80px; width: 80px"
+          />
+        </div>
         <div class="search-container">
           <BaseIcon name="search" style="margin-right: 0.5rem" />
           <BaseInput

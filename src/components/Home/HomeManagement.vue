@@ -1,12 +1,21 @@
 <template>
   <div>
     <div class="content-container">
-      <BaseGameCard
-        v-for="dealItem in dealList"
-        :key="dealItem.dealID"
-        :dealDetail="dealItem"
-      />
+      <template v-if="loadingContent">
+        <BaseGameCardSkeleton v-for="num in 30" :key="num" />
+      </template>
+      <template v-else>
+        <BaseGameCard
+          v-for="dealItem in dealList"
+          :key="dealItem.dealID"
+          :dealDetail="dealItem"
+          appear
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut"
+        />
+      </template>
       <q-pagination
+        v-if="!loadingContent"
         v-model="currentPage"
         :max="100"
         :max-pages="6"
@@ -20,6 +29,7 @@
 </template>
 
 <script setup>
+import BaseGameCardSkeleton from "../Base/BaseGameCardSkeleton.vue";
 import { ref, watch } from "vue";
 import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
@@ -28,15 +38,22 @@ const store = useDealStore();
 const { dealList } = storeToRefs(store);
 
 onMounted(() => {
-  store.getDealsList(currentPage.value - 1);
+  store.getDealsList(currentPage.value - 1).then(() => {
+    loadingContent.value = false;
+  });
 });
 
 // Vars
 const currentPage = ref(1);
+const loadingContent = ref(true);
 
 // Watcher
 watch(currentPage, (oldPage) => {
-  store.getDealsList(currentPage.value - 1);
+  loadingContent.value = true;
+  window.scrollTo(0, 0);
+  store.getDealsList(currentPage.value - 1).then(() => {
+    loadingContent.value = false;
+  });
 });
 
 function goToPage() {}
