@@ -19,7 +19,10 @@
           />
         </div>
         <div class="search-container">
-          <BaseIcon name="search" style="margin-right: 0.5rem" />
+          <BaseIcon
+            name="search"
+            style="margin-right: 0.5rem; color: #00f0ff"
+          />
           <BaseInput
             v-model="gameToSeach"
             :isDense="true"
@@ -47,14 +50,15 @@ let gameToSeach = ref("");
 }
 .tab-style {
   height: 6rem;
-  color: $font-color;
+  color: $white;
 }
 .link-active {
   text-decoration: underline;
+  color: $cyber-blue;
 }
 .search-container {
   display: flex;
-  border: 2px solid $red;
+  border: 2px solid $cyber-blue;
   border-radius: 6px;
   padding: 0.3rem;
   min-width: 20%;
