@@ -12,15 +12,23 @@ $info: #31ccec;
 $warning: #f2c037;
 
 $font-color: #ffffff;
-$background-color: rgba(0, 0, 0, 0.8);
+$background-color: rgba(0, 0, 0, 1);
 
 // Custom colors
 $white: #ffffff;
+$yellow: #fcee09;
+$cyber-blue: #00f0ff;
+$cyber-red: #ff003c;
+$cyber-yellow: #fcee09;
+
+// Effects
+$glow-color: $cyber-blue;
 
 // Color Overide
 $red: $accent;
 $input-text-color: $accent;
 $input-label-color: $accent;
+$blue-6: $cyber-blue;
 
 // Typhografy overide
 $h1: (
