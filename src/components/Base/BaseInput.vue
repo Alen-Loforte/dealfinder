@@ -11,7 +11,7 @@
     :hint="hint"
     :dense="isDense"
     hide-bottom-space
-    color="red"
+    color="blue-6"
     @update:model-value="(value) => $emit('update:text', value)"
   />
 </template>

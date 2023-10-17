@@ -67,11 +67,11 @@ function goToGame() {
   width: 400px;
   min-height: 350px;
   cursor: pointer;
-  transition: box-shadow 300ms ease-out;
-  transition: transform 300ms ease-out;
+  transition: 0.6s;
+  box-shadow: 0px 0px 0px 1px #f0f0f021;
+  border-radius: 3px;
   &:hover {
-    box-shadow: 0px 0px 10px 1px rgba(10, 0, 0, 1);
-    transform: translate(0px, 0px) scale(1.02, 1.02);
+    box-shadow: 0 0 0px 3px $glow-color;
   }
 }
 .card-style {
@@ -99,6 +99,7 @@ function goToGame() {
 }
 .multi-line {
   height: 4rem;
+  overflow: hidden;
 }
 
 .link-style {
@@ -115,7 +116,12 @@ function goToGame() {
       $primary 50%,
       $primary
     ),
-    conic-gradient(from var(--border-angle), transparent 20%, #9747ff, #f03);
+    conic-gradient(
+      from var(--border-angle),
+      transparent 20%,
+      $cyber-red,
+      $cyber-yellow
+    );
   background-size: calc(100% - (var(--border-size) * 2))
       calc(100% - (var(--border-size) * 2)),
     cover;
