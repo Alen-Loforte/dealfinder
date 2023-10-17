@@ -13,11 +13,12 @@
         </div>
         <div class="flex items-center">
           <span class="text-body1">
-            <q-skeleton animation="blink" type="text" width="50px" />
-          </span>
-          <BaseIcon name="arrow_right_alt" />
-          <span class="text-body1">
-            <q-skeleton animation="blink" type="text" width="50px" class="q-mr-sm" />
+            <q-skeleton
+              animation="blink"
+              type="text"
+              width="100px"
+              class="q-mr-sm"
+            />
           </span>
           <q-skeleton animation="blink" type="QAvatar" />
         </div>
