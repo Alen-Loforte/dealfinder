@@ -4,18 +4,35 @@ import { api } from "src/boot/axios";
 export const useDealStore = defineStore("deals", {
   state: () => ({
     dealList: [],
+    storeList: [],
   }),
   getters: {
     getDealList: (state) => state.dealList,
+    getStoreList: (state) => state.storeList,
   },
   actions: {
-    getDealsList(pageNumber) {
+    FetchDealList(pageNumber) {
       return api({
         method: "get",
-        // url: "deals?pageNumber={pageNumber}&pageSize=30",
         url: `deals?pageNumber=${pageNumber}&pageSize=30`,
+      }).then((response) => {
+        this.dealList = response.data;
+      });
+    },
 
-        // TODO: Need to replaced static pageNumber and pageSize
+    FetchStoreList() {
+      return api({
+        method: "get",
+        url: "/stores",
+      }).then((response) => {
+        this.storeList = response.data;
+      });
+    },
+
+    FetchSpecififcStoreDealList(pageNumber, storeID) {
+      return api({
+        method: "get",
+        url: `deals?storeID=${storeID}&pageNumber=${pageNumber}&pageSize=30`,
       }).then((response) => {
         this.dealList = response.data;
       });

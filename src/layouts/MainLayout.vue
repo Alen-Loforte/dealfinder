@@ -9,7 +9,39 @@
           indicator-color="transparent"
         >
           <q-route-tab no-caps to="/home" label="Home" />
-          <q-route-tab no-caps to="/page2" label="Stores" />
+          <q-btn
+            stretch
+            no-caps
+            label="Store"
+            :class="
+              storeButtonState($route.path)
+                ? 'store-button-active'
+                : 'store-button'
+            "
+          >
+            <q-menu
+              style="
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                width: 40vw;
+                height: 20vh;
+                background-color: rgb(25, 24, 24);
+              "
+            >
+              <q-list v-for="store in storeList" :key="store.storeID">
+                <q-item
+                  v-if="store.isActive != 0"
+                  clickable
+                  v-close-popup
+                  :to="GeneratedStoreLink(store)"
+                  class="text-blue-6"
+                >
+                  <q-item-section>{{ store.storeName }}</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
           <q-route-tab no-caps to="/page3" label="About" />
         </q-tabs>
         <div>
@@ -39,8 +71,29 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useDealStore } from "src/stores/deal-store";
+import { storeToRefs } from "pinia";
+
+const dealStore = useDealStore();
+const { storeList } = storeToRefs(dealStore);
 let gameToSeach = ref("");
+
+onMounted(() => {
+  dealStore.FetchStoreList().then(() => {});
+});
+
+function GeneratedStoreLink(storeInfo) {
+  return `/store/${storeInfo.storeName}`;
+}
+
+function storeButtonState(currentPath) {
+  if (currentPath.includes("/store")) {
+    return true;
+  } else {
+    return false;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -62,5 +115,19 @@ let gameToSeach = ref("");
   border-radius: 6px;
   padding: 0.3rem;
   min-width: 20%;
+}
+.store-button {
+  line-height: 1.715em;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #d9d9d9;
+}
+
+.store-button-active {
+  line-height: 1.715em;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: $cyber-blue;
+  text-decoration: underline;
 }
 </style>

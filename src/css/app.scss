@@ -16,3 +16,19 @@ body {
 .q-field--outlined .q-field__control:before {
   border: 2px solid rgba(255, 30, 86, 0.9);
 }
+
+// #region ===== Global Styles ===== //
+.global-content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.85rem;
+}
+
+.global-pagination-container {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  margin-top: 2vh;
+}
+// #endregion
