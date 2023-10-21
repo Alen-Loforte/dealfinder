@@ -109,8 +109,6 @@ function storeButtonState(currentPath) {
   text-decoration: underline;
   color: $cyber-blue;
 }
-.qMenu-style {
-}
 .search-container {
   display: flex;
   border: 2px solid $cyber-blue;
