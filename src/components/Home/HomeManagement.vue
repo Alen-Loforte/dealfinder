@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content-container">
+    <div class="global-content-container">
       <template v-if="loadingContent">
         <BaseGameCardSkeleton v-for="num in 30" :key="num" />
       </template>
@@ -14,6 +14,8 @@
           leave-active-class="animated fadeOut"
         />
       </template>
+    </div>
+    <div class="global-pagination-container">
       <q-pagination
         v-if="!loadingContent"
         v-model="currentPage"
@@ -21,6 +23,7 @@
         :max-pages="6"
         direction-links
         flat
+        size="1vw"
         color="grey"
         active-color="primary"
       />
@@ -29,16 +32,14 @@
 </template>
 
 <script setup>
-import BaseGameCardSkeleton from "../Base/BaseGameCardSkeleton.vue";
-import { ref, watch } from "vue";
-import { onMounted } from "vue";
+import { ref, watch, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useDealStore } from "src/stores/deal-store";
 const store = useDealStore();
 const { dealList } = storeToRefs(store);
 
 onMounted(() => {
-  store.getDealsList(currentPage.value - 1).then(() => {
+  store.FetchDealList(currentPage.value - 1).then(() => {
     loadingContent.value = false;
   });
 });
@@ -51,7 +52,7 @@ const loadingContent = ref(true);
 watch(currentPage, (oldPage) => {
   loadingContent.value = true;
   window.scrollTo(0, 0);
-  store.getDealsList(currentPage.value - 1).then(() => {
+  store.FetchDealList(currentPage.value - 1).then(() => {
     loadingContent.value = false;
   });
 });
@@ -59,11 +60,4 @@ watch(currentPage, (oldPage) => {
 function goToPage() {}
 </script>
 
-<style lang="scss" scoped>
-.content-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.85rem;
-}
-</style>
+<style lang="scss" scoped></style>
