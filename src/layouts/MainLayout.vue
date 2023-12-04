@@ -25,7 +25,7 @@
                 flex-direction: column;
                 flex-wrap: wrap;
                 width: 40vw;
-                height: 20vh;
+                height: 40vh;
                 background-color: rgb(25, 24, 24);
               "
             >
