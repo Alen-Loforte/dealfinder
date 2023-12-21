@@ -1,46 +1,70 @@
 export function GetStoreIcon(storeID) {
+  let iconName = "";
   switch (storeID) {
     case "1":
-      return "/src/assets/icons/steam-icon.svg";
+      iconName = "steam-icon.svg";
+      break;
     case "2":
-      return "/src/assets/icons/gamersgate-icon.svg";
+      iconName = "gamersgate-icon.svg";
+      break;
     case "3":
-      return "/src/assets/icons/greenmangaming-icon.svg";
+      iconName = "greenmangaming-icon.svg";
+      break;
     case "4":
-      return "/src/assets/icons/amazon-icon.svg";
+      iconName = "amazon-icon.svg";
+      break;
     case "5":
-      return "/src/assets/icons/gamestop-icon.svg";
+      iconName = "gamestop-icon.svg";
+      break;
     case "6":
-      return "/src/assets/icons/direct2drive-icon.svg";
+      iconName = "direct2drive-icon.svg";
+      break;
     case "7":
-      return "/src/assets/icons/gog-icon.svg";
+      iconName = "gog-icon.svg";
+      break;
     case "8":
-      return "/src/assets/icons/origin-icon.svg";
+      iconName = "origin-icon.svg";
+      break;
     case "11":
-      return "/src/assets/icons/humble-icon.svg";
+      iconName = "humble-icon.svg";
+      break;
     case "13":
-      return "/src/assets/icons/uplay-icon.svg";
+      iconName = "uplay-icon.svg";
+      break;
     case "15":
-      return "/src/assets/icons/fanatical-icon.svg";
+      iconName = "fanatical-icon.svg";
+      break;
     case "21":
-      return "/src/assets/icons/wingamestore-icon.svg";
+      iconName = "wingamestore-icon.svg";
+      break;
     case "23":
-      return "/src/assets/icons/gamebillet-icon.svg";
+      iconName = "gamebillet-icon.svg";
+      break;
     case "24":
-      return "/src/assets/icons/voidu-icon.svg";
+      iconName = "voidu-icon.svg";
+      break;
     case "25":
-      return "/src/assets/icons/epicgames-icon.svg";
+      iconName = "epicgames-icon.svg";
+      break;
     case "27":
-      return "/src/assets/icons/gamesplanet-icon.svg";
+      iconName = "gamesplanet-icon.svg";
+      break;
     case "30":
-      return "/src/assets/icons/indegala-icon.svg";
+      iconName = "indegala-icon.svg";
+      break;
     case "31":
-      return "/src/assets/icons/blizzard-icon.svg";
+      iconName = "blizzard-icon.svg";
+      break;
     case "34":
-      return "/src/assets/icons/noctre-icon.svg";
+      iconName = "noctre-icon.svg";
+      break;
     default:
-      return "/src/assets/icons/noicon-icon.svg";
+      iconName = "noicon-icon.svg";
+      break;
   }
+  const iconFullPath = new URL(`../assets/icons/${iconName}`, import.meta.url)
+    .href;
+  return iconFullPath;
 }
 
 export function GetStoreName(storeID) {
