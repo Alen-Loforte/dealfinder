@@ -60,8 +60,8 @@ module.exports = configure(function (/* ctx */) {
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
-
-      // publicPath: '/',
+      publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
+      // publicPath: "/",
       // analyze: true,
       // env: {},
       // rawDefine: {}

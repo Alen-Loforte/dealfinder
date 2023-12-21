@@ -2,7 +2,7 @@
   <div class="icon-container">
     <q-icon :size="size">
       <BaseTooltip v-if="showTooltip" :label="GetStoreName(storeNum)" />
-      <img :src="GetStoreIcon(storeNum)" />
+      <img :src="getIMGPath(GetStoreIcon(storeNum))" />
     </q-icon>
   </div>
 </template>
@@ -30,6 +30,10 @@ const props = defineProps({
     default: true,
   },
 });
+
+function getIMGPath(img) {
+  return img ? new URL(img, import.meta.url).href : "";
+}
 </script>
 
 <style lang="scss" scoped>
