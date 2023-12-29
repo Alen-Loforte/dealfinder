@@ -27,7 +27,7 @@
         :max-pages="6"
         direction-links
         flat
-        size="1vw"
+        size="1em"
         color="grey"
         active-color="primary"
       />
@@ -60,6 +60,7 @@ onMounted(() => {
     });
 });
 
+// On page number change show skeleton and scroll to Top
 watch(currentPage, (oldPage) => {
   loadingContent.value = true;
   window.scrollTo(0, 0);
@@ -70,9 +71,11 @@ watch(currentPage, (oldPage) => {
     });
 });
 
+// On route change show skeleton
 watch(route, () => {
   storeID.value = GetStoreID(route.params.storeName);
   loadingContent.value = true;
+  currentPage.value = 1;
   dealStore
     .FetchSpecififcStoreDealList(currentPage.value - 1, storeID.value)
     .then(() => {
