@@ -9,6 +9,8 @@
 <style lang="scss" scoped>
 .container-style {
   background-color: $background-color;
-  padding: 2rem;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
 }
 </style>

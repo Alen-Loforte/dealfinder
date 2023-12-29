@@ -20,7 +20,7 @@
         v-if="!loadingContent"
         v-model="currentPage"
         :max="100"
-        :max-pages="6"
+        :max-pages="4"
         direction-links
         flat
         size="1em"
