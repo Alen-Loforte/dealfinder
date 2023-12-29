@@ -23,7 +23,7 @@
         :max-pages="6"
         direction-links
         flat
-        size="1vw"
+        size="1em"
         color="grey"
         active-color="primary"
       />
