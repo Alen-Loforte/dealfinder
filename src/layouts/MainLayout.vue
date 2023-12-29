@@ -1,7 +1,23 @@
 <template>
   <q-layout view="hHh lpR lFr">
-    <q-header elevated class="bg-primary">
-      <q-toolbar class="toolbar-style">
+    <DesktopHeader
+      v-if="$q.platform.is.desktop"
+      :storeList="storeList"
+      @storeClicked="GeneratedStoreLink"
+      @goToHomePage="GoToHomePage"
+    />
+
+    <MobileHeader
+      v-if="$q.platform.is.mobile"
+      :storeList="storeList"
+      @storeClicked="GeneratedStoreLink"
+      @goToHomePage="GoToHomePage"
+    />
+    <!-- <q-header elevated class="bg-primary">
+      <q-toolbar v-if="$q.platform.is.mobile">
+
+      </q-toolbar>
+      <q-toolbar v-if="$q.platform.is.desktop" class="toolbar-style">
         <q-tabs
           align="left"
           class="tab-style"
@@ -62,7 +78,7 @@
           />
         </div>
       </q-toolbar>
-    </q-header>
+    </q-header> -->
 
     <q-page-container>
       <router-view />
@@ -72,19 +88,26 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import { useDealStore } from "src/stores/deal-store";
 import { storeToRefs } from "pinia";
+import DesktopHeader from "./DesktopHeader.vue";
+import MobileHeader from "./MobileHeader.vue";
 
+const router = useRouter();
 const dealStore = useDealStore();
 const { storeList } = storeToRefs(dealStore);
-let gameToSeach = ref("");
 
 onMounted(() => {
   dealStore.FetchStoreList().then(() => {});
 });
 
 function GeneratedStoreLink(storeInfo) {
-  return `/store/${storeInfo.storeName}`;
+  router.push(`/store/${storeInfo.storeName}`);
+}
+
+function GoToHomePage() {
+  router.push("/home");
 }
 
 function storeButtonState(currentPath) {
@@ -102,7 +125,6 @@ function storeButtonState(currentPath) {
   justify-content: space-between;
 }
 .tab-style {
-  height: 6rem;
   color: $white;
 }
 .link-active {

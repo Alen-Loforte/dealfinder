@@ -46,7 +46,7 @@
 .card-content {
   background-color: $primary;
   padding: 0.5rem;
-  width: 400px;
+  width: 25em;
   min-height: 350px;
 }
 .card-style {

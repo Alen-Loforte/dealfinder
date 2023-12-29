@@ -23,6 +23,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.85rem;
+  background-color: $background-color;
 }
 
 .global-pagination-container {
@@ -30,5 +31,6 @@ body {
   justify-content: center;
   height: 10vh;
   margin-top: 2vh;
+  background-color: $background-color;
 }
 // #endregion
