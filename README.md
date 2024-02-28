@@ -1,3 +1,5 @@
+<a href="https://www.codefactor.io/repository/github/alen-loforte/dealfinder"><img src="https://www.codefactor.io/repository/github/alen-loforte/dealfinder/badge" alt="CodeFactor" /></a>
+
 # Quasar App (getdeals)
 
 A website in dev that allows the user to see which games are on discount across various websites.
