@@ -10,6 +10,7 @@
     :rules="rules"
     :hint="hint"
     :dense="isDense"
+    :debounce="debounce"
     hide-bottom-space
     color="blue-6"
     @update:model-value="(value) => $emit('update:text', value)"
@@ -17,7 +18,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   value: {
     type: [String, Number],
     default: "",
@@ -57,6 +58,9 @@ const props = defineProps({
   },
   rules: {
     type: Array,
+  },
+  debounce: {
+    type: Number,
   },
 });
 </script>

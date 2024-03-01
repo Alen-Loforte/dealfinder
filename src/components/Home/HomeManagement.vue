@@ -36,25 +36,19 @@ import { ref, watch, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useDealStore } from "src/stores/deal-store";
 const store = useDealStore();
-const { dealList } = storeToRefs(store);
+const { dealList, loadingContent } = storeToRefs(store);
 
 onMounted(() => {
-  store.FetchDealList(currentPage.value - 1).then(() => {
-    loadingContent.value = false;
-  });
+  store.FetchDealList(currentPage.value - 1);
 });
 
 // Vars
 const currentPage = ref(1);
-const loadingContent = ref(true);
 
 // Watcher
 watch(currentPage, (oldPage) => {
-  loadingContent.value = true;
   window.scrollTo(0, 0);
-  store.FetchDealList(currentPage.value - 1).then(() => {
-    loadingContent.value = false;
-  });
+  store.FetchDealList(currentPage.value - 1);
 });
 
 function goToPage() {}

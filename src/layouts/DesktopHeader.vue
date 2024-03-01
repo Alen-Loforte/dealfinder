@@ -18,28 +18,22 @@
               : 'store-button'
           "
         >
-          <q-menu
-            style="
-              display: flex;
-              flex-direction: column;
-              flex-wrap: wrap;
-              background-color: rgb(25, 24, 24);
-            "
-          >
-            <q-list v-for="store in storeList" :key="store.storeID">
-              <q-item
-                v-if="store.isActive != 0"
-                clickable
-                v-close-popup
-                @click="$emit('storeClicked', store)"
-                class="text-blue-6"
-              >
-                <q-item-section>{{ store.storeName }}</q-item-section>
-              </q-item>
+          <q-menu style="border: 1px solid #00f0ff; border-radius: 6px">
+            <q-list class="q-list" max-width="30vw">
+              <span v-for="store in storeList" :key="store.storeID">
+                <q-item
+                  v-if="store.isActive != 0"
+                  clickable
+                  v-close-popup
+                  @click="$emit('storeClicked', store)"
+                  class="text-blue-6"
+                >
+                  <q-item-section>{{ store.storeName }}</q-item-section>
+                </q-item>
+              </span>
             </q-list>
           </q-menu>
         </q-btn>
-        <q-route-tab no-caps to="/page3" label="About" />
       </q-tabs>
       <div>
         <q-icon
@@ -48,22 +42,30 @@
           @click="$emit('goToHomePage')"
         />
       </div>
-      <div class="search-container">
+      <!-- <div class="search-container">
         <BaseIcon name="search" style="margin-right: 0.5rem; color: #00f0ff" />
-        <BaseInput v-model="gameToSeach" :isDense="true" style="width: 100%" />
-      </div>
+        <BaseInput
+          v-model="gameToSearch"
+          :debounce="700"
+          :isDense="true"
+          style="width: 100%"
+        />
+      </div> -->
     </q-toolbar>
   </q-header>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useDealStore } from "src/stores/deal-store";
+
+const dealStore = useDealStore();
 
 const props = defineProps({
   storeList: Array,
 });
 
-const gameToSeach = ref("");
+const gameToSearch = ref("");
 
 function storeButtonState(currentPath) {
   if (currentPath.includes("/store")) {
@@ -72,6 +74,14 @@ function storeButtonState(currentPath) {
     return false;
   }
 }
+
+watch(gameToSearch, (newValue, oldValue) => {
+  if (newValue == "") {
+    dealStore.FetchDealList(0);
+  } else {
+    dealStore.SearchGame(newValue);
+  }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -106,5 +116,11 @@ function storeButtonState(currentPath) {
   font-size: 1.5rem;
   color: $cyber-blue;
   text-decoration: underline;
+}
+.q-list {
+  background-color: $primary;
+  max-width: 52vw;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
