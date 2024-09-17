@@ -1,9 +1,11 @@
 <a href="https://www.codefactor.io/repository/github/alen-loforte/dealfinder"><img src="https://www.codefactor.io/repository/github/alen-loforte/dealfinder/badge" alt="CodeFactor" /></a>
 
-# Quasar App (getdeals)
+# getdeals
 
 A website in dev that allows the user to see which games are on discount across various websites.
-The website will use cheapshark API(https://apidocs.cheapshark.com/) to fecth all the current discounts
+The website will use cheapshark API(https://apidocs.cheapshark.com/) to fecth all the current discounts.
+
+Here is the link: <a href="https://gamefiresale.web.app/home" </a>
 
 # To Do
 1. ~~Add pagination on the home page~~
