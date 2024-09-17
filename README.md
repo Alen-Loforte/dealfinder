@@ -5,7 +5,7 @@
 A website in dev that allows the user to see which games are on discount across various websites.
 The website will use cheapshark API(https://apidocs.cheapshark.com/) to fecth all the current discounts.
 
-Here is the link: <a href="https://gamefiresale.web.app/home" </a>
+Here is the link: https://gamefiresale.web.app/home"
 
 # To Do
 1. ~~Add pagination on the home page~~
